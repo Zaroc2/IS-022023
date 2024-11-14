@@ -1,0 +1,66 @@
+@startuml DiagramaDeObjetos
+
+'diagrama de objetos que represente 
+'un juego entre Venezuela y Colombia 
+'en los Panamericanos que se realizan en Chile
+
+object Jugador1{
+    telefono: 04241444778
+    nombre: Mariangel Gómez
+    direccion: Av. Libertador
+    numero: 5
+    posicion: Levantador
+}
+
+object Jugador2{
+    telefono: 04242539764
+    nombre: Mauricio Gonzalez
+    direccion: Av. Baralt
+    numero: 13
+    posicion: Central Delantero
+}
+
+object Jugador3{
+
+    telefono: 04142105891
+    nombre: Gabriel Conde
+    direccion: Fuerte Tiuna
+    numero: 4
+    posicion: Libero
+}
+
+object Entrenador1{
+    telefono: 04241522447
+    nombre: Marcel Castro
+    direccion: La Guaira
+    nivelAcreditacion: 20
+    anosDeExperiencia: 10
+}
+
+object Equipo1{
+    nombre: Venezuela
+    registro: exitoso
+    capitan: J1
+}
+
+object Equipo2{
+    nombre: Colombia
+    registro: regular
+    capitan: J3
+}
+
+object Juego1{
+    localidad: Chile
+    puntuacion: 20
+}
+
+Juego1 -- Equipo1
+Juego1 -- Equipo2
+
+Equipo1 *-- Jugador1
+Equipo1 *-- Jugador2
+Equipo2 *-- Jugador3
+Entrenador1 -- Equipo1
+Entrenador1 -- Equipo2
+
+@enduml
