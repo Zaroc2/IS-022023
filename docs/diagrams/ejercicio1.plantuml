@@ -1,0 +1,19 @@
+@startuml diagrama de enum
+
+
+
+
+rectangle Registro
+rectangle Venta
+rectangle Catalogo_Productos
+rectangle EspecificacionProducto
+rectangle Date 
+rectangle List
+
+Registro --> Catalogo_Productos : 1: create() \n5:getEspecificacion()
+Registro --> Venta : 2:create() \n 7:crearLineaVenta()
+Registro --> EspecificacionProducto : 6:create()
+Venta --> Date : 3:create()
+Venta --> List  : 4:create()
+
+@enduml

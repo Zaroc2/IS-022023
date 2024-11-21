@@ -1,0 +1,44 @@
+@startuml diagrama de estados
+
+state Producto_Encargado
+state Producto_Pagado
+state c1 <<choice>>
+state c2 <<choice>>
+state fork1 <<fork>>
+state fork2 <<fork>>
+
+
+
+[*] --> Producto_Encargado : El cliente pide el producto
+
+Producto_Encargado --> c1 : ¿Es valido el pedido?
+
+
+c1 --> [*] : No
+
+c1 --> Producto_Validado: Sí
+
+Producto_Validado --> Producto_Pagado : Se cobra el pago del cliente
+
+Producto_Pagado --> c2 : ¿Es urgente el pedido?
+
+c2 --> Envio_Urgente : Sí
+c2 --> Envio_Ordinario : No
+
+Envio_Urgente --> Producto_Entregado : Se envía de manera urgente
+Envio_Ordinario --> Producto_Entregado : Se envía de manera normal
+
+Producto_Entregado --> fork1
+fork1 --> Recibo_Enviado : Se envía el recibo
+fork1 --> Clientes_Satisfechos : Se añade a la lista de clientes satisfechos
+
+Recibo_Enviado --> fork2
+Clientes_Satisfechos --> fork2
+
+fork2 --> [*]
+
+
+
+
+
+@enduml
